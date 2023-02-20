@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- language is english encoder is utf-8 -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Gamezone:Payments</title>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="shortcut icon" type="image/png" href="images/payment.png"/>
+   </head>
+   <body>
+      <div class="main">
+         <div class="nav">
+            <header>
+               <!-- main container with the header and navigation bar-->
+               <ul>
+                  <li>Gamezone <img class="image-1" src="images/controller.png" alt="logo"></li>
+                  <li><a href="Home.html">Home | </a></li>
+                  <li><a href="Products.html">Products | </a></li>
+                  <li><a href="Review.html">Review | </a></li>
+                  <li><a href="Cart.html">Cart<img id="image-1" src="images/cart.png" alt="cart"></a></li>
+               </ul>
+            </header>
+         </div>
+         <!-- all required in formation to make a payment-->
+         <div id="body-4">
+            <div class="part1">
+               <form  action="Success.html" method="get">
+                  <label>Please select method of payment:</label>
+                  <input list="Payments" class="colors" required="">
+                  <datalist id="Payments">
+                     <option value="Credit card">
+                     <option value="Debit card">
+                     <option value="PayPal">
+                     <option value="Visa">
+                     <option value="Benefitpay">
+                  </datalist>
+                  <br>
+                  <label>Card Number:</label>
+                  <input class="colors" type="number" required>
+                  <label>Expiration date:</label>
+                  <input type="month" class="colors" min="2000-01" required="">
+                  <label>Security code:</label>
+                  <input type="password" minlength="3" maxlength="4" class="colors" required>
+                  <label>first name:</label>
+                  <input type="text" class="colors" required>
+                  <br>
+                  <label>Last name:</label>
+                  <input type="text" class="colors" required>
+                  <label>Email:</label>
+                  <input type="email" class="colors" required>
+                  <br>
+                  <label>Password:</label>
+                  <input type="password" class="colors" required>
+                  <input name="sumbit" class="Game" value="Submit" type="submit">
+                  <input type="button" class="Game" value="Cancel" onClick="window.location.reload();">
+               </form>
+            </div>
+            <!--footer with links to contact us-->
+            <footer>
+            <div class="nav" id="nav1">
+            <ul>
+            <li> Contact us at <a href="mailto:Dontemailmeplz@gmailcom">Dontemailmeplz@gmailcom</a> or call us at +973 3226 3942</li>
+            <li><a href="https://www.facebook.com/"><img class="image-1" src="images/facebook.png" alt="facebook"></a></li>
+            <li><a  href="https://www.instagram.com/"><img  class="image-1" src="images/instagram.png" alt="Instagram"></a></li>
+            <li><a  href="https://www.youtube.com/"><img class="image-1" src="images/media-player.png" alt="youtube"></a></li>
+            <li><a  href="https://twitter.com/"><img class="image-1" src="images/twitter.png" alt="twitter"></a></li>
+            </ul>
+            </div>
+            </footer>
+         </div>
+      </div>
+   </body>
+</html>

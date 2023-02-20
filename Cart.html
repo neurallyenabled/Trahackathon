@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!-- language is english encoder is utf-8 -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Gamezone:Cart</title>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="shortcut icon" type="image/png" href="images/carts.png"/>
+      <script>
+         function checkout(){
+         var game1 =+ localStorage.getItem("price1");
+         var game2 =+ localStorage.getItem("price2");
+         var game3 =+ localStorage.getItem("price3");
+         var sum = (game1 + game2 + game3).toFixed(2);
+         if(sum==0){
+           document.getElementById("body-3").innerHTML ="Your cart is empty add products"
+           foot = document.getElementById("name");
+           foot.setAttribute("id","nav-l");
+         }else{
+           if(game2 == 0){
+           document.getElementById("fifa").style.display = "none"
+           }else{
+           document.getElementById("total").innerHTML = game2.toFixed(2);
+           }
+           if(game1 == 0){
+           document.getElementById("apex").style.display = "none"
+           }else{
+           document.getElementById("total1").innerHTML = game1.toFixed(2);
+
+           }
+           if(game3 == 0){
+           document.getElementById("val").style.display = "none"
+           }else{
+           document.getElementById("total2").innerHTML = game3.toFixed(2);
+           }
+           if(sum==0){
+           document.getElementById("totalProducts").innerHTML = "cart is empty"
+           }else{
+           document.getElementById("totalProducts").innerHTML = sum;
+           }
+         }
+         }
+         function remove(){
+             localStorage.removeItem("price1");
+             document.getElementById("total").innerHTML = "Total:";
+             document.getElementById("total1").value = 0;
+             window.location.reload();
+           }
+           function remove1(){
+               localStorage.removeItem("price2");
+               document.getElementById("total1").innerHTML = "Total:";
+               document.getElementById("total").value = 0;
+               window.location.reload();
+             }
+             function remove2(){
+                 localStorage.removeItem("price3");
+                 document.getElementById("total2").innerHTML = "Total:";
+                 document.getElementById("total2").value = 0;
+                 window.location.reload();
+               }
+      </script>
+   </head>
+   <!-- body with in load function gets items from the local storage-->
+   <body onload="checkout()">
+      <!-- main container with the header and navigation bar-->
+      <div id="main">
+         <div class="nav">
+            <header>
+               <ul>
+                  <li>Gamezone <img class="image-1" src="images/controller.png" alt="logo"></li>
+                  <li><a href="Home.html">Home | </a></li>
+                  <li><a href="Products.html">Products | </a></li>
+                  <li><a href="Review.html">Review | </a></li>
+                  <li><a href="Cart.html">Cart<img id="image-1" src="images/cart.png" alt="cart"></a></li>
+               </ul>
+            </header>
+         </div>
+         <div id=body-3>
+            <!--body that shows total purchase and button for the payment-->
+            <h1 >Total amount of products in Bahraini Dinar</h1>
+            <table>
+               <tr>
+                  <th>Product name</th>
+                  <th>Product image</th>
+                  <th>Game description</th>
+                  <th>Total Products</th>
+               </tr>
+               <tr id="fifa">
+                  <td>Fifa 22</td>
+                  <td><img src="images/Fifa22.jpg" alt="Game2" class="image-2"></td>
+                  <td>FIFA 22 is an association football simulation video game published by Electronic Arts as part of the FIFA series.</td>
+                  <td><input class="Game" value="Remove" onclick="remove1()" type="button"><span id="total">Total:</span></td>
+               </tr>
+               <tr id="apex">
+                  <td>Apex legends</td>
+                  <td><img src="images/apex.jpg" alt="Game1" class="image-2"></td>
+                  <td>Apex Legends is a free-to-play battle royale-hero shooter game.</td>
+                  <td><input class="Game"  value="Remove" onclick="remove()" type="button"><span id="total1">Total:</span></td>
+               </tr>
+               <tr id="val">
+                  <td>Valorant</td>
+                  <td><img src="images/valorant.jpg" alt="Game3" class="image-2"></td>
+                  <td>Valorant is a free-to-play first-person hero shooter developed and published by Riot Games, for Microsoft Windows.</td>
+                  <td><input class="Game" value="Remove" onclick="remove2()" type="button"><span id="total2">Total:</span></td>
+               </tr>
+            </table>
+            <span id="totalProducts"></span>
+            <form method="get" action="Payment.html">
+               <button class="Game"  type="submit">Payment</button>
+            </form>
+         </div>
+         <!--footer with links to contact us-->
+      </div>
+      <footer id="name">
+         <div class="nav">
+            <ul>
+               <li> Contact us at <a href="mailto:Dontemailmeplz@gmailcom">Dontemailmeplz@gmailcom</a> or call us at +973 3226 3942</li>
+               <li><a href="https://www.facebook.com/"><img class="image-1" src="images/facebook.png" alt="facebook"></a></li>
+               <li><a  href="https://www.instagram.com/"><img  class="image-1" src="images/instagram.png" alt="Instagram"></a></li>
+               <li><a  href="https://www.youtube.com/"><img class="image-1" src="images/media-player.png" alt="youtube"></a></li>
+               <li><a  href="https://twitter.com/"><img class="image-1" src="images/twitter.png" alt="twitter"></a></li>
+            </ul>
+         </div>
+      </footer>
+   </body>
+</html>

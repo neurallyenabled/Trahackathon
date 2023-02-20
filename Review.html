@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- language is english encoder is utf-8 -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Gamezone:Reviews</title>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="shortcut icon" type="image/png" href="images/reviews.png"/>
+      <script>
+         function Add(){
+         var review = document.getElementById("input").value;
+         if(review.length == 0){
+           alert("No text");
+         }else{
+           localStorage.setItem("review",review);
+           document.getElementById("user_input").innerHTML = review;
+         }
+         }
+
+         function Edit(){
+         var review = document.getElementById("input").value;
+         var feed = document.getElementById("user_input").innerHTML;
+         if(feed.length == 0 ){
+           alert("No text");
+         }else if (review.length == 0) {
+            alert("No text");
+         }else{
+            document.getElementById("user_input").innerHTML =review;
+         }
+         }
+         function Delete(){
+         localStorage.removeItem("user_input");
+         document.getElementById("user_input").innerHTML = "";
+         }
+         function ReviewingComment(){
+         if(localStorage.getItem("review") == null){
+         }else{
+           document.getElementById("user_input").innerHTML = localStorage.getItem("review");
+         }
+         }
+
+      </script>
+   </head>
+   <!-- body has on load function that check if there is a review or not in the localStorage-->
+   <body onload="ReviewingComment()">
+      <div class="main">
+         <div class="nav">
+            <header>
+               <!-- main container with the header and navigation bar-->
+               <ul>
+                  <li>Gamezone <img class="image-1" src="images/controller.png" alt="logo"></li>
+                  <li><a href="Home.html">Home | </a></li>
+                  <li><a href="Products.html">Products | </a></li>
+                  <li><a href="Review.html">Review | </a></li>
+                  <li><a href="Cart.html">Cart<img id="image-1" src="images/cart.png" alt="cart"></a></li>
+               </ul>
+            </header>
+         </div>
+         <div class="body-1">
+            <h1>Welcome to Gamezone</h1>
+            <p>
+               Add your comment on our products your feedback is important!. <br>
+               In order to edit your comment please select it <br>
+               <!-- buttons to add edit delete review-->
+            </p>
+            <textarea id="input" class="colors" rows="7" cols="100"></textarea>
+            <br>
+            <input type="submit" class="Game" value="Add" onclick="Add()">
+            <input type="submit" class="Game" value="Edit" onclick="Edit()">
+            <input type="button" class="Game" value="Delete" onclick="Delete()">
+         </div>
+         <ul id="reviews">
+            <li>My review on Valorant: Great game keep up the great work!!!.</li>
+            <li>My review on Fifa 21: Great game but the players are really expensive</li>
+            <li>Developers: Fantastic games keep the good work!!.</li>
+            <li id="user_input"></li>
+         </ul>
+         <!--footer with links to contact us-->
+         <footer>
+            <div class="nav">
+               <ul>
+                  <li> Contact us at <a href="mailto:Dontemailmeplz@gmailcom">Dontemailmeplz@gmailcom</a> or call us at +973 3226 3942</li>
+                  <li><a href="https://www.facebook.com/"><img class="image-1" src="images/facebook.png" alt="facebook"></a></li>
+                  <li><a  href="https://www.instagram.com/"><img  class="image-1" src="images/instagram.png" alt="Instagram"></a></li>
+                  <li><a  href="https://www.youtube.com/"><img class="image-1" src="images/media-player.png" alt="youtube"></a></li>
+                  <li><a  href="https://twitter.com/"><img class="image-1" src="images/twitter.png" alt="twitter"></a></li>
+               </ul>
+            </div>
+         </footer>
+      </div>
+   </body>
+</html>

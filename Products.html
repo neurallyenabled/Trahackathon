@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- language is english encoder is utf-8 -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Gamezone:Products</title>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="shortcut icon" type="image/png" href="images/products.png"/>
+      <script>
+         var zero = 0;
+         function add(){
+           var game = document.getElementById("Game1").value;
+           var gamePrice = 10 * game;
+           if (game > zero){
+             document.getElementById("total").innerHTML = "Total: " + gamePrice.toFixed(2);
+             localStorage.setItem("price1",gamePrice);
+           }else{
+             alert("error value isnt correct!")
+           }
+           }
+           function remove(){
+             localStorage.removeItem("price1");
+             document.getElementById("total").innerHTML = "Total:";
+             document.getElementById("Game1").value = 0;
+           }
+           function add1(){
+             var game = document.getElementById("Game2").value;
+             var gamePrice = 20 * game;
+             if (game > zero){
+               document.getElementById("total1").innerHTML = "Total: " + gamePrice.toFixed(2);
+               localStorage.setItem("price2",gamePrice);
+             }else{
+               alert("error value isnt correct!")
+             }
+             }
+             function remove1(){
+               localStorage.removeItem("price2");
+               document.getElementById("total1").innerHTML = "Total:";
+               document.getElementById("Game2").value = 0;
+             }
+             function add2(){
+               var game = document.getElementById("Game3").value;
+               var gamePrice = 15 * game;
+               if (game > zero){
+                 document.getElementById("total2").innerHTML = "Total: " + gamePrice.toFixed(2);
+                 localStorage.setItem("price3",gamePrice);
+               }else{
+                 alert("error value isnt correct!")
+               }
+               }
+               function remove2(){
+                 localStorage.removeItem("price3");
+                 document.getElementById("total2").innerHTML = "Total:";
+                 document.getElementById("Game3").value = 0;
+               }
+      </script>
+   </head>
+   <!-- code to add to the local storage and remove as well, also calculates the price-->
+   <body>
+      <div class="main">
+         <div class="nav">
+            <header>
+               <!-- main container with the header and navigation bar-->
+               <ul>
+                  <li>Gamezone <img class="image-1" src="images/controller.png" alt="logo"></li>
+                  <li><a href="Home.html">Home | </a></li>
+                  <li><a href="Products.html">Products | </a></li>
+                  <li><a href="Review.html">Review | </a></li>
+                  <li><a href="Cart.html">Cart<img id="image-1" src="images/cart.png" alt="cart"></a></li>
+               </ul>
+            </header>
+         </div>
+         <!-- table that contain the products and their information, as well buttons to add and remove items -->
+         <div id="body-2">
+            <table>
+               <tr>
+                  <th>Product number</th>
+                  <th>Product name</th>
+                  <th>Product image</th>
+                  <th>Game description</th>
+                  <th>Product price in Bahraini Dinar</th>
+                  <th>Total Products</th>
+               </tr>
+               <tr>
+                  <td>1</td>
+                  <td>Apex legends</td>
+                  <td><img src="images/apex.jpg" alt="Game1" class="image-2"></td>
+                  <td>Apex Legends is a free-to-play battle royale-hero shooter game.</td>
+                  <td>10</td>
+                  <td><input class="input" id="Game1"  type="number"> <input class="Game" id="Add" value="Add" onclick="add()" type="button">
+                     <input class="Game" id="Remove" value="Remove" onclick="remove()" type="button"> <span id="total">Total:</span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>2</td>
+                  <td>Fifa 22</td>
+                  <td><img src="images/Fifa22.jpg" alt="Game2" class="image-2"></td>
+                  <td>FIFA 22 is an association football simulation video game published by Electronic Arts as part of the FIFA series.</td>
+                  <td>20</td>
+                  <td><input class="input" id="Game2"  type="number"> <input class="Game" id="Add1" value="Add" onclick="add1()" type="button">
+                     <input class="Game" id="Remove1" value="Remove" onclick="remove1()" type="button"><span id="total1">Total:</span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>3</td>
+                  <td>Valorant</td>
+                  <td><img src="images/valorant.jpg" alt="Game3" class="image-2"></td>
+                  <td>Valorant is a free-to-play first-person hero shooter developed and published by Riot Games, for Microsoft Windows.</td>
+                  <td> 15</td>
+                  <td><input class="input" id="Game3"  type="number"> <input class="Game" id="Add2" value="Add" onclick="add2()" type="button">
+                     <input class="Game" id="Remove3" value="Remove" onclick="remove2()" type="button"><span id="total2">Total:</span>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <!--link to cart-->
+         <div id="done">
+            <a href="Cart.html">Click here to purchase the selected products.</a>
+         </div>
+         <!--footer with links to contact us-->
+         <footer>
+            <div class="nav">
+               <ul>
+                  <li> Contact us at <a href="mailto:Dontemailmeplz@gmailcom">Dontemailmeplz@gmailcom</a> or call us at +973 3226 3942</li>
+                  <li><a href="https://www.facebook.com/"><img class="image-1" src="images/facebook.png" alt="facebook"></a></li>
+                  <li><a  href="https://www.instagram.com/"><img  class="image-1" src="images/instagram.png" alt="Instagram"></a></li>
+                  <li><a  href="https://www.youtube.com/"><img class="image-1" src="images/media-player.png" alt="youtube"></a></li>
+                  <li><a  href="https://twitter.com/"><img class="image-1" src="images/twitter.png" alt="twitter"></a></li>
+               </ul>
+            </div>
+         </footer>
+      </div>
+   </body>
+</html>
