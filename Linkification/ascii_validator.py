@@ -9,6 +9,16 @@ allowed_resp = requests.get('https://www.iana.org/assignments/idna-tables-11.0.0
 
 allowed_dict = xmltodict.parse(allowed_resp.text)
 
+'''
+Record Format
+{
+    "codepoint": "0000-002C",
+    "property": "DISALLOWED",
+    "description": "NULL..COMMA"
+}
+'''
+allowed_recrods = allowed_dict['registry']['registry'][1]['record'] # List of records
+
 def validate_ascii_domain(domain: str):
     domain = domain.lower()
     if len(domain) > 255 or len(domain) <= 0:
