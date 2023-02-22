@@ -93,7 +93,7 @@ def display_short_url(url):
 def display_all():
     return render_template('all_urls.html', vals=Urls.query.all())
 
-@app.route('/display/email', methods=['POST'])
+@app.route('/email', methods=['POST'])
 def sendEmail():
     email = request.form['email']
     short_url = request.form['short_url']
