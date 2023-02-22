@@ -49,10 +49,14 @@ def shorten_url():
 def home():
     if request.method == "POST":
         try:
-            url_received = request.form["nm"]
-            url_received = url_received.split("https://")[1].split("/", 1)
-            normalized_input = unicodedata.normalize('NFC',url_received[0])
-            url_received = "https://"+normalized_input+"/"+url_received[1]
+            middle_url = url_received.split("https://")[1].split("/")[0]
+            rest_link = url_received.split("https://")[1].split("/")[1:]
+            extention = ""
+            for i in rest_link:
+                extention = extention+"/"+i
+                
+            normalized_input = unicodedata.normalize('NFC',middle_url)
+            url_received = "https://"+normalized_input+extention
         except:
             url_received = request.form["nm"]
             url_received = url_received.split("https://")[1]
