@@ -4,12 +4,23 @@ import random
 import string
 import os
 import unicodedata
+import unicodedata
+import idna
+from email_validator import validate_email, EmailNotValidError
+import smtplib
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///urls.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
+def parse_mail(mail):
+  mail_local, mail_domain = mail.split('@')
+  mail_normal = unicodedata.normalize('NFC', mail_domain)
+  mail_mail = '@'.join((mail_local, idna.encode(mail_normal).decode("ascii")))
+  return mail_mail
+
 
 @app.before_first_request
 def create_tables():
@@ -39,7 +50,7 @@ def home():
     if request.method == "POST":
         try:
             url_received = request.form["nm"]
-            url_received = url_received.split("https://")[1].split("/")
+            url_received = url_received.split("https://")[1].split("/", 1)
             normalized_input = unicodedata.normalize('NFC',url_received[0])
             url_received = "https://"+normalized_input+"/"+url_received[1]
         except:
@@ -77,5 +88,9 @@ def display_short_url(url):
 def display_all():
     return render_template('all_urls.html', vals=Urls.query.all())
 
-if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+@app.route('email', methods=['POST'])
+def sendEmail():
+    email = request.form['email']
+    short_url = request.form['short_url']
+    print(email, short_url)
+

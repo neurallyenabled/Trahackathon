@@ -1,7 +1,16 @@
 {% extends "base.html" %} {% block title %}Short URL{% endblock %} {% block
 content %}
 <a href="/{{short_url_display}}">
-  <h1>http://فريق-٧.البحرين/{{short_url_display}}</h1>
+  <h1>فريق-٧.البحرين/{{short_url_display}}</h1>
 </a>
+
+<form action="email" , method="post">
+  <label for="url">Enter an Email</label>
+  <input type="hidden" name="short_url", value="{{short_url_display}}">
+  <input type="email" name="email" id="email" placeholder="https://example.com" size="50" required>
+  <br>
+  <input type="submit" value="Email" class="btn btn-primary">
+</form>
+
 <a href="/">BACK TO HOME</a>
 {% endblock %}
