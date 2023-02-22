@@ -115,7 +115,7 @@ def sendEmail():
         To: {to}
         Subject: Team-7 short URL
 
-        https://فريق-٧.البحرين:8000/{short_url}
+        http://فريق-٧.البحرين:8000/{short_url}
         '''
 
         # sending the mail
