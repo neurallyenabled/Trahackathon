@@ -111,8 +111,8 @@ def sendEmail():
         sender_mail = parse_mail(sender_mail)
 
         msg = f'''\
-        From: {idna.decode(sender_mail)}
-        To: {idna.decode(to)}
+        From: {sender_mail}
+        To: {to}
         Subject: Team-7 short URL
 
         http://فريق-٧.البحرين:8000/{short_url}
