@@ -15,6 +15,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+
 def parse_mail(mail):
   mail_local, mail_domain = mail.split('@')
   mail_normal = unicodedata.normalize('NFC', mail_domain)
@@ -97,5 +98,33 @@ def sendEmail():
     email = request.form['email']
     short_url = request.form['short_url']
     print(email, short_url)
+
+    try:
+        s = smtplib.SMTP('10.83.9.133', 25)
+        # start TLS for security
+        s.starttls()
+
+        sender_mail = 'اخضر@فريق-٧.البحرين'
+        to = email
+
+        to = parse_mail(to)
+        sender_mail = parse_mail(sender_mail)
+
+        msg = f'''\
+        From: {sender_mail}
+        To: {to}
+        Subject: Team-7 short URL
+
+        https://فريق-٧.البحرين:8000/{short_url}
+        '''
+
+        # sending the mail
+        s.sendmail(sender_mail, to, msg)
+        # terminating the session
+        s.quit()
+    except Exception as e:
+        return f'Error Happened while sending email: {e}'
+    
+
     return f'Sent Email to {email}'
 

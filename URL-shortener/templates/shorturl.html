@@ -4,10 +4,10 @@ content %}
   <h1>فريق-٧.البحرين/{{short_url_display}}</h1>
 </a>
 
-<form action="email" , method="post">
+<form action="/email" method="post">
   <label for="url">Enter an Email</label>
   <input type="hidden" name="short_url", value="{{short_url_display}}">
-  <input type="email" name="email" id="email" placeholder="https://example.com" size="50" required>
+  <input type="email" name="email" id="email" placeholder="ali@gmail.com" size="50" required>
   <br>
   <input type="submit" value="Email" class="btn btn-primary">
 </form>
