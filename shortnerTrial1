@@ -1,0 +1,32 @@
+import unicodedata
+import idna
+
+class URL_shortener:
+    # suppose we already have 10 billion urls
+    id = 1000000000
+    # store url to id in order to have diplicated url with different id.
+
+    url2id = ()
+
+    def shorten_url(self, original_url):
+        if original_url in self.url2id:
+
+            id = self.url2id[original_url]
+            shorten_url = self.encode(id)
+        else:
+            # Store urel in order not to have duplicated url in the future
+        self.url2id[original_url] = self.id
+        self.id += 1
+
+        return 'short_url.com' + shorten_url
+
+    def encode(self, id):
+        # base 62 characters
+        characters = '0123456789اأآةجحخهعغفقثصضشسيبلتنمكورزدذطظ'
+        base = len(characters)
+        ret = []
+        while id > 0:
+            val = id
+            ret.append(characters[val])
+            id = id // base
+            return "".join(ret[::-1])
