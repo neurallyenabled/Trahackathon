@@ -15,7 +15,7 @@ s = smtplib.SMTP('10.83.9.133', 25)
 s.starttls()
 
 sender_mail = 'اخضر@فريق-٧.البحرين'
-to = 'حكم-١@هتا.البحرين'
+to = 'حكم-٢@هتا.البحرين'
 
 to = parse_main(to)
 sender_mail = parse_main(sender_mail)
